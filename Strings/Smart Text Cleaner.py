@@ -1,7 +1,7 @@
 s =  "  hello world!!!   this is    a test.how are you?i am fine.  123remove numbers456  "
 #handling edge case
 if not s:
-    print("empty", "")
+    print("")
     
 #step 1 remove extra space
 s = s.strip()
@@ -18,9 +18,15 @@ print("jion back:",s)
  #step 4 remove number
 
 
-result ="".join(i for i in s if i.isalpha())
+result = "".join(char for char in s if char.isalpha() or char.isspace())
 print(result)
 
+n = "123456789"
+punctuation = "!@"
+for char in s:
+    if char in n or char in punctuation:
+        s = s.replace(char ,"") 
 
+print(s)
 
 
