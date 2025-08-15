@@ -16,8 +16,8 @@ result = {
   "punctuation_count": {}
 }
 
-text = "The quick brown fox jumps over the lazy dog. The dog was really lazy!"
-
+text = "The quick brown fox jumps over the lazy dog. the ,the ,The dog was really lazy!"
+text = text.lower()
 #handle edge case
 if not text:
     print("")
@@ -33,12 +33,12 @@ result["chars_no_spaces"] = chars_no_spaces
 #punctuation_Count 
 punctuation_count = 0
 for char in text:
-    if char in "!.?":
+    if char in "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~":
         punctuation_count+=1
 result["punctuation_count"] = punctuation_count
 
 #remove punctaution 
-cleaned_text = text.replace("!","").replace("?" ,"").replace(".","")
+cleaned_text = text.replace("!","").replace("?" ,"").replace(".","").replace(",","").replace(":", "").replace(";","").replace("@","")
 
 
 #words count 
@@ -59,7 +59,7 @@ result["longest_word"] = longest
 result["shortest_word"] = shortest
 
 #average word count 
-avg_word_count =  sum(len(word) for word in count_word) // len(count_word)
+avg_word_count =  round(sum(len(word) for word in count_word) / len(count_word),2)
 
 result["avg_word_length"] = avg_word_count
 
@@ -82,7 +82,7 @@ for word,count in word_count.items():
     elif count >= 2:
         most_common.append((word,count))
 sorted(most_common) 
-result["most_common"] = most_common
+result["most_common"].append(most_common)
 result["unique_words"] = unique_word
 
   # Count sentence-ending punctuation
