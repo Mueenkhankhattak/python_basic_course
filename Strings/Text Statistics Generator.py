@@ -16,7 +16,7 @@ result = {
   "punctuation_count": {}
 }
 
-text = "The quick brown fox jumps over the lazy dog. the ,the ,The dog was really lazy!"
+text = "The quick brown fox jumps over the lazy dog. The dog was really lazy!"
 text = text.lower()
 #handle edge case
 if not text:
@@ -59,7 +59,7 @@ result["longest_word"] = longest
 result["shortest_word"] = shortest
 
 #average word count 
-avg_word_count =  round(sum(len(word) for word in count_word) / len(count_word),2)
+avg_word_count =  round(sum(len(word) for word in count_word) / len(count_word))
 
 result["avg_word_length"] = avg_word_count
 

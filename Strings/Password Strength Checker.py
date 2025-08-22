@@ -1,4 +1,4 @@
-pasword = "Myaaaa123!"
+pasword = "MySecure123aaaa!"
 result = {
     "length_ok" : False,
     "has_upper" : False,
@@ -13,6 +13,7 @@ result = {
 } 
 
 count = 0 
+
 length_ok = len(pasword)
 if length_ok >= 8:
     result["length_ok"] = True
@@ -24,12 +25,6 @@ if length_ok >=12:
     result["length_ok"] = True
     count+=10   
 
-
-for char in pasword:
-    if pasword.count(char) >= 3:
-        result["repeted_char"] = char
-count-=10
-result["suggestions"].append("repeted char")
         
 if any(c.isupper() for c in pasword):
     result["has_upper"] = True
@@ -54,6 +49,13 @@ if any(not c.isalnum() for  c in pasword):
     count +=15
 else:
     result["suggestions"].append("no special character!")  
+    
+for char in pasword:
+    if pasword.count(char) >= 4:
+        result["repeted_char"] = char
+        count-=10
+        break
+result["suggestions"].append("repeted char")
     
 result["score"] = count
 

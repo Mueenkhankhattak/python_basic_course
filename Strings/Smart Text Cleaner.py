@@ -30,11 +30,14 @@ for char in s:
         s = s.replace(char ,"") 
 
 print(s)
+
 new_text = ""
 found = False
 for char in s:
     if char != "!":
         new_text+=char
+    
+        
         
     else:
         if not found:
@@ -47,19 +50,13 @@ print(new_text)
 result = ""
 next_char = True
 found = False
-for char in s:
+for char in new_text:
     if next_char and char.isalpha():
         char = char.upper()
         next_char = False
     
-    if char == " ":
+    if char == "." or char == "?":
         next_char = True
-        
-    if char == "!":
-        if found:
-            continue
-        found = True
-        
     result+=char
         
     
